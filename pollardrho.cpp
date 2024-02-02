@@ -13,33 +13,6 @@ void pollardrho::f(mpz_t& x, mpz_t n) {
     m_c += 1;
 }
 
-// mpz init, push back, mpz clear
-/*
-std::list<mpz_t> pollardrho::find_factors(mpz_t n) {
-    std::list<mpz_t> factors;
-    mpz_t p, x_1;
-    mpz_inits(p, x_1);
-
-    for(unsigned int i = 0; i < m_reps; ++i) {
-        m_c += 1;
-
-        for(unsigned int j = 0; j < m_reps; ++j) {
-            mpz_set_ui(x_1, j);
-            mpz_set_ui(p, pollard_rho_algorithm(n, x_1));
-
-            auto it = std::find(factors.begin(), factors.end(), p);
-            //factors.push_back(p);
-        }
-        
-    }
-
-    mpz_clears(p, x_1);
-    // Reset constant in case other numbers are to be factored
-    m_c = 0;
-
-    return factors;
-}*/
-
 unsigned long int pollardrho::pollard_rho_algorithm(mpz_t n, mpz_t x_1) {
     mpz_t x, y, diff, p;
     mpz_inits(x, y, diff, p, NULL);

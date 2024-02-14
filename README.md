@@ -10,7 +10,9 @@ During my semester at uni, I had a project to learn about and implement Pollard'
 ## How do I run this?
 Given that you have GMP and g++ installed, just run the command `g++ main.cpp pollardrho.cpp -o main -lgmp -lgmpxx` and `./main` with the appropriate arguments (when I have integrated them...). I have not tested the program with any other compiler.
 
+If you want to run the tests, add the compiler flag `-DRUN_TESTS`.
+
 ## TODO:
 - [ ] RAII-based initialization for `mpz_t` types.
-- [ ] Random Number Generator to pass into the factorization class
-- [ ] Test cases
+- [x] Test cases
+- [ ] Profiling/Timing

@@ -15,7 +15,7 @@ If you want to run the tests, add the compiler flag `-DRUN_TESTS`.
 When you have compiled the program, you can run it by writing `./main <number> <reps>`, where `<number>` is the number you want to factor, and `<reps>` is the amount of times you want the program to try and find unique (but not necessarily prime) factors.
 
 ## Complexity
-Traditionally, Pollard's Rho algorithm's complexity is heuristically $O(n^{1/4})$, but since I include the `<reps>` argument, the complexity changes to $O(reps \cdot n^{1/4})$.
+Traditionally, Pollard's Rho algorithm's complexity is heuristically $O(n^{1/4})$, but since I include the `<reps>` argument, the complexity changes to $O(reps^2 \cdot n^{1/4})$.
 
 ## TODO:
 - [x] Test cases

@@ -24,6 +24,8 @@ unsigned long int pollardrho::pollard_rho_algorithm(mpz_t n, mpz_t x_1) {
     while(mpz_cmp_ui(p, 1) == 0) {
         f(x, n);
         f(y, n); f(y, n);
+
+        // diff := x - y
         mpz_sub(diff, x, y);
         mpz_gcd(p, diff, n);
     }
@@ -32,7 +34,9 @@ unsigned long int pollardrho::pollard_rho_algorithm(mpz_t n, mpz_t x_1) {
 
     mpz_clears(x, y, diff, p, NULL);
 
-    if(mpz_cmp(p, n) == 0) return res;
+    // Returns -1 if n == res. Rarely happens, but
+    // just represents an invalid result.
+    if(mpz_cmp_ui(n, res) == 0) return -1;
     return res;
 }
 
@@ -43,7 +47,8 @@ std::vector<unsigned long int> pollardrho::find_factors(mpz_t n, mpz_t x_1) {
     for(size_t i = 0; i < m_reps; ++i) {
         for(size_t j = 0; j < m_reps; ++j) {
             unsigned long int res = pollard_rho_algorithm(n, x_1);
-            //gmp_printf("FACTOR FOUND: %lu\n", res);
+
+            // Finds out if the factor found already exists
             auto it = std::find(factors.begin(), factors.end(), res);
             if(it == factors.end()) factors.push_back(res);
 
